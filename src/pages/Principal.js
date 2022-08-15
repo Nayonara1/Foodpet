@@ -1,43 +1,4 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import {NavigationContainer} from '@react-navigation/native'
-import Inicial from './src/pages/Inicial'
-import Principal from './src/pages/Principal'
-
-const Stack = createNativeStackNavigator()
-
-export default () => {
-    return(
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName='Inicial'>
-                <Stack.Screen name="Inicial" component={Inicial} />
-                <Stack.Screen name="Principal" component={Principal} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity,StyleSheet, FlatList, Image } from "react-native";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useBackHandler } from '@react-native-community/hooks';
@@ -97,10 +58,10 @@ export default function App({ navigation }) {
         
         <View style={styles.container}>
             <TouchableOpacity onPress={ligar} >
-                <Text>ligar</Text>
+                <Text>Ligar</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={desligar}>
-                <Text>desligar</Text>
+                <Text>Desligar</Text>
             </TouchableOpacity>
         </View>
     )
@@ -110,11 +71,12 @@ export default function App({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 5,
+      flex: 1,
       justifyContent: 'center',
       paddingTop: Constants.statusBarHeight,
       backgroundColor: 'pink',
       padding: 110,
+     alignItems: 'center' 
     },
     paragraph: {
       margin: 35,
@@ -124,4 +86,3 @@ const styles = StyleSheet.create({
     },
   });
 
-*/
