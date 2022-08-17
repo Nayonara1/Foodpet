@@ -6,7 +6,6 @@ import { collection, getDocs } from "firebase/firestore";
 import Paho from "paho-mqtt"
 import Constants from 'expo-constants';
 
-
 // const database = firebase.firestore();
 // var clientID = "ID-" + Math.round(Math.random() * 1000);
 const client = new Paho.Client(
@@ -49,13 +48,8 @@ function desligar() {
 
     client.send(message1); // abrir o broker online
 }
-
 export default function App({ navigation }) {
-
-
-
     return (
-        
         <View style={styles.container}>
             <TouchableOpacity onPress={ligar} >
                 <Text>Ligar</Text>
@@ -65,16 +59,14 @@ export default function App({ navigation }) {
             </TouchableOpacity>
         </View>
     )
-
 }
-
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
       paddingTop: Constants.statusBarHeight,
-      backgroundColor: 'pink',
+      backgroundColor: '#ffff',
       padding: 110,
      alignItems: 'center' 
     },
@@ -85,4 +77,3 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
   });
-
