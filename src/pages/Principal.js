@@ -52,12 +52,13 @@ export default function App({ navigation }) {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={ligar} >
-                <Text>Ligar</Text>
+                <Text>ON</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={desligar}>
-                <Text>Desligar</Text>
+                <Text>OFF</Text>
             </TouchableOpacity>
         </View>
+        
     )
 }
 
