@@ -57,10 +57,12 @@ export default function App({ navigation }) {
             <TouchableOpacity onPress={desligar}>
                 <Text>OFF</Text>
             </TouchableOpacity>
+            
         </View>
         
     )
 }
+
 
 const styles = StyleSheet.create({
     container: {
