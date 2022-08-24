@@ -13,7 +13,6 @@ export default () => {
                 <Stack.Screen name="Inicial" component={Inicial} />
                 <Stack.Screen name="Principal" component={Principal} />
                 <Stack.Screen name="Cadastro" component={Cadastro} />
-
             </Stack.Navigator>
         </NavigationContainer>
     )

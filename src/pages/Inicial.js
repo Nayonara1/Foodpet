@@ -19,6 +19,8 @@ export default ({ navigation }) => {
         var user = userCredential.user;
         //navigation.navigate("Principal", { idUser: user.uid })
         alert("Deu certo");
+        navigation.navigate('Principal')
+
         // ...
       })
       .catch((error) => {

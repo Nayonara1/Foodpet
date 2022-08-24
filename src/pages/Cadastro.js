@@ -1,38 +1,38 @@
-import react from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
-import firebase from "../../config/firebaseConfig";
-
+import { collection, getDocs } from "firebase/firestore";
+import firebase from "../config/firebase";
 
 
 export default () => {
-    async function register() {
-        const database = firebase.firestore()
-        const [email, setEmail] = useState("");
-        const [senha, setSenha] = useState("");
-        const [nome, setNome] = useState("");
-        const [telefone, setTelefone] = useState("");
-        const [porta, setPorta] = useState("");
+    const database = firebase.firestore();
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [nome, setNome] = useState("");
+    const [nomePet, SetNomepet] = useState("");
 
+    async function cadastro() {
         await firebase.auth().createUserWithEmailAndPassword(email, senha)
             .then(database => {
                 const uid = database.user.uid;
                 const users = firebase.firestore().collection('users');
                 users.doc(uid).set({
-                    name: nome, telefone: telefone, porta: porta, email: email
+                    name: nome, email: email, nomePet: nomePet
                 });
             });
-        navigation.navigate("Task")
+        navigation.navigate("Principal")
     }
+
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Preciso de alguns dados para começar.</Text>
-            <TextInput style={styles.input} placeholder="Seu nome" />
-            <TextInput style={styles.input} placeholder="Nome do seu pet" />
-            <TextInput style={styles.input} placeholder="Email" />
-            <TextInput style={styles.input} placeholder="Senha" />
-           
+            <TextInput style={styles.input} placeholder="Seu nome" type="text" onChangeText={setNome} value={nome}/>
+            <TextInput style={styles.input} placeholder="Senha" type="text" onChangeText={setSenha} value={senha} />
+            <TextInput style={styles.input} placeholder="Email" type="text" onChangeText={setEmail} value={email}/>
+            <TextInput style={styles.input} placeholder="Nome do seu pet" type="text" onChangeText={SetNomepet} value={nomePet}/>
 
-            <TouchableOpacity style={styles.buttonRegister}>
+            <TouchableOpacity style={styles.buttonRegister} onPress={cadastro}>
                 <Text style={styles.textButtonRegister}>Cadastrar</Text>
             </TouchableOpacity>
         </View>

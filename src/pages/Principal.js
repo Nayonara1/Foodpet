@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity,StyleSheet, FlatList, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Image } from "react-native";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useBackHandler } from '@react-native-community/hooks';
 import { collection, getDocs } from "firebase/firestore";
@@ -7,11 +7,12 @@ import Paho from "paho-mqtt"
 import Constants from 'expo-constants';
 
 // const database = firebase.firestore();
-// var clientID = "ID-" + Math.round(Math.random() * 1000);
+var clientID = "ID-" + Math.round(Math.random() * 1000);
 const client = new Paho.Client(
     'broker.emqx.io',
     8083,
-    '/'
+    clientID
+
 )
 // 'broker.emqx.io',
 // 8083,
@@ -48,37 +49,37 @@ function desligar() {
 
     client.send(message1); // abrir o broker online
 }
-export default function App({ navigation }) {
+export default ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.paragraph}>Alimente seu pet sem estresse</Text>
-        <TouchableOpacity onPress={ligar} style={styles.btnLigar}>
-            <Text>LIGAR</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
-            <Text>DESLIGAR</Text>
-        </TouchableOpacity>
-    </View>
-)
+            <Text style={styles.paragraph}>Alimente seu pet sem stress!</Text>
+            <TouchableOpacity onPress={ligar} style={styles.btnLigar}>
+                <Text>LIGAR</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
+                <Text>DESLIGAR</Text>
+            </TouchableOpacity>
+        </View>
+    )
 
 }
 
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      justifyContent: 'center',
-      //backgroundColor: '#EEE9E9',
-     alignItems: 'center' 
+        flex: 1,
+        justifyContent: 'center',
+        //backgroundColor: '#EEE9E9',
+        alignItems: 'center'
     },
     paragraph: {
-      margin: 20,
-      fontSize: 19,
-      fontWeight: 'center',
-      textAlign: 'center',
-      fontWeight: 'bold'
+        margin: 20,
+        fontSize: 19,
+        fontWeight: 'center',
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
-    bntDesligar:{
+    bntDesligar: {
         width: 200,
         height: 50,
         justifyContent: "center",
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginTop: 30,
     },
-    btnLigar:{
+    btnLigar: {
         width: 200,
         height: 50,
         justifyContent: "center",
@@ -96,4 +97,4 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginTop: 30,
     }
-  });
+});
