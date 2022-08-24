@@ -59,7 +59,16 @@ export default ({ navigation }) => {
             <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
                 <Text>DESLIGAR</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonLogout} onPress={() => { logout() }}>
+                <Text style={styles.iconButtonLogout}>
+                    Sair
+                </Text>
+                <MaterialCommunityIcons name="location-exit" size={23} color="#FA6252" />
+
+
+            </TouchableOpacity>
         </View>
+
     )
 
 }
