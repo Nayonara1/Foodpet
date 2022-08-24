@@ -1,32 +1,76 @@
-import React from 'react';
-import { View, Button, Text, Image,StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Button, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 //import Alogin2 from '../../components/Alogin2';
+import Styles from '../components/Alogin2/styles';
+import firebase from "../config/firebase"
+import "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
 
-export default ({ navigation }) => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+export default ({ navigation }) => {
 
-    <View style={styles.img}>
-    <Image source={require('../../assets/Imagens/gato01.png')} style={{height:160, width: 200, borderRadius: 12}}/>
-    </View>
+  const [email, setEmail] = useState("")
+  const [senha, setSenha ] = useState("")
+
   
-    <Text>Bem-vindo ao FoodPet!</Text>
-    <Text>Um app para alimentar seu animal.</Text>
-    <Button 
-      title="Principal"
-      onPress={() => navigation.navigate('Principal')}
-    />
-   
+  const login = () => {
+    firebase.auth().signInWithEmailAndPassword(email, senha)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        //navigation.navigate("Principal", { idUser: user.uid })
+        alert("Deu certo");
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(error.message);
+
+      });
+  }
+  return (
+
+
+
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+
+      <View style={styles.img}>
+        <Image source={require('../../assets/Imagens/gato01.png')} style={{ height: 160, width: 200, borderRadius: 12 }} />
       </View>
-);
+      <Text style={Styles.text}>Bem-vindo ao FoodPet!</Text>
+
+      <TextInput style={Styles.input} placeholder="  Digite seu usuário" type="text" onChangeText={setEmail} value={email} />
+      <TextInput style={Styles.input} secureTextEntry={true} placeholder="  Digite sua senha" type="text" onChangeText={setSenha} value={senha}  />
+
+      <TouchableOpacity style={Styles.btn} onPress={login}>
+        <Text style={Styles.textbtn} > Entrar </Text>
+      </TouchableOpacity>
+
+
+      <Button
+        title="Principal"
+        onPress={() => navigation.navigate('Principal')}
+      />
+
+<Text style={Styles.registration}>
+                Não está cadastrado?
+                <Text style={Styles.linkSubscribe} onPress={() => navigation.navigate("Cadastro")}>
+                    Cadastre-se agora
+                </Text>
+            </Text>
+
+    </View>
+  )
+};
 const styles = StyleSheet.create({
   img: {
-    
-    height:250,
-     width: 250,
-      borderRadius: 250,
-       backgroundColor: '#fff',
-       justifyContent: 'center', 
-        alignItems:'center' 
+
+    height: 250,
+    width: 250,
+    borderRadius: 250,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
 });

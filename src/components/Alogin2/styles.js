@@ -30,7 +30,7 @@ export default StyleSheet.create({
         width: 320,
         fontSize: 18,
         fontWeight: 'bold',
-        backgroundColor: '#7B68EE',
+        backgroundColor: '#FA6252',
         alignItems: 'center',
         justifyContent: 'center',
        
@@ -43,6 +43,17 @@ export default StyleSheet.create({
        
         
     },
+    registration: {
+        marginTop: 20,
+        color: "#000000",
+        fontSize: 16,
+    },
+    linkSubscribe: {
+        color: "#0000CD",
+        fontSize: 16,
+        marginLeft: 10,
+        fontSize: 16,
+    }
   
   
   

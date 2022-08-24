@@ -51,11 +51,12 @@ function desligar() {
 export default function App({ navigation }) {
     return (
         <View style={styles.container}>
-        <TouchableOpacity onPress={ligar} >
-            <Text>ligar</Text>
+            <Text style={styles.paragraph}>Alimente seu pet sem estresse</Text>
+        <TouchableOpacity onPress={ligar} style={styles.btnLigar}>
+            <Text>LIGAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={desligar}>
-            <Text>desligar</Text>
+        <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
+            <Text>DESLIGAR</Text>
         </TouchableOpacity>
     </View>
 )
@@ -67,15 +68,32 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      paddingTop: Constants.statusBarHeight,
-      backgroundColor: '#ffff',
-      padding: 110,
+      //backgroundColor: '#EEE9E9',
      alignItems: 'center' 
     },
     paragraph: {
-      margin: 35,
-      fontSize: 18,
+      margin: 20,
+      fontSize: 19,
       fontWeight: 'center',
       textAlign: 'center',
+      fontWeight: 'bold'
     },
+    bntDesligar:{
+        width: 200,
+        height: 50,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#FA6252",
+        borderRadius: 50,
+        marginTop: 30,
+    },
+    btnLigar:{
+        width: 200,
+        height: 50,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#FA6252",
+        borderRadius: 50,
+        marginTop: 30,
+    }
   });
