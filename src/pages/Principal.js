@@ -51,17 +51,16 @@ function desligar() {
 export default function App({ navigation }) {
     return (
         <View style={styles.container}>
-        <TouchableOpacity onPress={ON } >
+        <TouchableOpacity onPress={ligar} >
             <Text>ligar</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={OFF}>
+        <TouchableOpacity onPress={desligar}>
             <Text>desligar</Text>
         </TouchableOpacity>
     </View>
 )
 
 }
-
 
 
 const styles = StyleSheet.create({
