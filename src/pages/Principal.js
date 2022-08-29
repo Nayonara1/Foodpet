@@ -5,52 +5,60 @@ import { useBackHandler } from '@react-native-community/hooks';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { collection, getDocs } from "firebase/firestore";
 import Paho from "paho-mqtt"
+import firebase from "../config/firebase";
 import Constants from 'expo-constants';
 
-// const database = firebase.firestore();
-var clientID = "ID-" + Math.round(Math.random() * 1000);
-const client = new Paho.Client(
-    'broker.emqx.io',
-    8083,
-    clientID
-
-)
-// 'broker.emqx.io',
-// 8083,
-// // '10.44.1.35',
-// // 9001,
-// '/'
-// // clientID
-client.connect({
-    onSuccess: function () {
-        console.log("connected")
-        // console.log(clientID)
-        // client.subscribe("esp32/output")
-        // client.subscribe("esp32/distance")
-        client.subscribe("alimentador"); // As linhas a seguir sao uma tentativa de envio de mensagem
-    },
-    onFailure: function () {
-        console.log("Desconectado")
-    },
-    // userName: 'emqx',
-    // password: 'public',
-    // useSSL: true,
-})
-
-function ligar() {
-    const message1 = new Paho.Message("on"); // AGORA funcionando
-    message1.destinationName = "alimentador"; // para testar
-
-    client.send(message1); // abrir o broker online
-}
-
-function desligar() {
-    const message1 = new Paho.Message("off"); // AGORA funcionando
-    message1.destinationName = "alimentador"; // para testar
-
-    client.send(message1); // abrir o broker online
-}
 export default ({ navigation }) => {
+    var clientID = "ID-" + Math.round(Math.random() * 1000);
+    const client = new Paho.Client(
+        'broker.emqx.io',
+        8083,
+        clientID
+
+    )
+    // 'broker.emqx.io',
+    // 8083,
+    // // '10.44.1.35',
+    // // 9001,
+    // '/'
+    // // clientID
+    client.connect({
+        onSuccess: function () {
+            console.log("connected")
+            // console.log(clientID)
+            // client.subscribe("esp32/output")
+            // client.subscribe("esp32/distance")
+            client.subscribe("alimentador"); // As linhas a seguir sao uma tentativa de envio de mensagem
+        },
+        onFailure: function () {
+            console.log("Desconectado")
+        },
+        // userName: 'emqx',
+        // password: 'public',
+        // useSSL: true,
+    })
+    const database = firebase.firestore();
+    function sair() {
+        firebase.auth().signOut().then(() => {
+            navigation.navigate("Inicial")
+        }).catch((error) => {
+
+        });
+    }
+
+    function ligar() {
+        const message1 = new Paho.Message("on"); // AGORA funcionando
+        message1.destinationName = "alimentador"; // para testar
+
+        client.send(message1); // abrir o broker online
+    }
+
+    function desligar() {
+        const message1 = new Paho.Message("off"); // AGORA funcionando
+        message1.destinationName = "alimentador"; // para testar
+
+        client.send(message1); // abrir o broker online
+    }
     return (
         <View style={styles.container}>
             <Text style={styles.paragraph}>Alimente seu pet sem stress!</Text>
@@ -60,8 +68,8 @@ export default ({ navigation }) => {
             <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
                 <Text>DESLIGAR</Text>
             </TouchableOpacity>
-            
-            <TouchableOpacity style={styles.bntInicial} onPress={() => { Inicial() }}>
+
+            <TouchableOpacity style={styles.bntInicial} onPress={() => { sair() }}>
                 <Text style={styles.iconBntInicialt}>
                     Sair
                 </Text>
@@ -117,8 +125,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         paddingTop: 8,
-      },
-      iconButtonLogout: {
+    },
+    iconButtonLogout: {
         color: "#000000",
         fontSize: 20,
         fontWeight: "bold",

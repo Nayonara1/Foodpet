@@ -1,5 +1,6 @@
+import React from "react";
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import {NavigationContainer} from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import Inicial from './src/pages/Inicial'
 import Principal from './src/pages/Principal'
 import Cadastro from './src/pages/Cadastro'
@@ -7,12 +8,12 @@ import Cadastro from './src/pages/Cadastro'
 const Stack = createNativeStackNavigator()
 
 export default () => {
-    return(
+    return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='Inicial'>
                 <Stack.Screen name="Inicial" component={Inicial} />
-                <Stack.Screen name="Principal" component={Principal} />
-                <Stack.Screen name="Cadastro" component={Cadastro} />
+                <Stack.Screen name="Principal" component={Principal} options={{ headerBackVisible: false }}/>
+                <Stack.Screen name="Cadastro" component={Cadastro}  />
             </Stack.Navigator>
         </NavigationContainer>
     )

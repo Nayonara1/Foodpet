@@ -4,7 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import firebase from "../config/firebase";
 
 
-export default () => {
+export default ({ navigation }) => {
     const database = firebase.firestore();
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
