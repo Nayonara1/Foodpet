@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, Image } from "react-native";
 import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useBackHandler } from '@react-native-community/hooks';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { collection, getDocs } from "firebase/firestore";
 import Paho from "paho-mqtt"
 import Constants from 'expo-constants';
@@ -59,11 +60,12 @@ export default ({ navigation }) => {
             <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
                 <Text>DESLIGAR</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonLogout} onPress={() => { logout() }}>
-                <Text style={styles.iconButtonLogout}>
+            
+            <TouchableOpacity style={styles.bntInicial} onPress={() => { Inicial() }}>
+                <Text style={styles.iconBntInicialt}>
                     Sair
                 </Text>
-                <MaterialCommunityIcons name="location-exit" size={23} color="#FA6252" />
+                <MaterialCommunityIcons name="location-exit" size={25} color="#FA6252" />
 
 
             </TouchableOpacity>
@@ -105,5 +107,23 @@ const styles = StyleSheet.create({
         backgroundColor: "#FA6252",
         borderRadius: 50,
         marginTop: 30,
+    },
+    bntInicial: {
+        width: 60,
+        height: 30,
+        position: "absolute",
+        bottom: 30,
+        right: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: 8,
+      },
+      iconButtonLogout: {
+        color: "#000000",
+        fontSize: 20,
+        fontWeight: "bold",
+        position: "absolute",
+        right: 40,
     }
+
 });
