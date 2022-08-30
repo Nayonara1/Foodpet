@@ -3,6 +3,7 @@ import { View, Button, Text, Image, StyleSheet, TextInput, TouchableOpacity } fr
 //import Alogin2 from '../../components/Alogin2';
 import Styles from '../components/Alogin2/styles';
 import firebase from "../config/firebase"
+import {Ionicons} from '@expo/vector-icons';
 import "firebase/auth";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth"
 
@@ -40,7 +41,9 @@ export default ({ navigation }) => {
 
       <TextInput style={Styles.input} placeholder="  Digite seu usuário" type="text" onChangeText={setEmail} value={email} />
       <TextInput style={Styles.input} secureTextEntry={true} placeholder="  Digite sua senha" type="text" onChangeText={setSenha} value={senha} />
-      <TouchableOpacity style={styles.icon} onPress={() => setHidePass(!hidePass)}>
+      <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
+      <Ionicons name="eye" color='#FFF' size={25} />
+
 
       </TouchableOpacity>
       <TouchableOpacity style={Styles.btn} onPress={login}>
@@ -54,7 +57,7 @@ export default ({ navigation }) => {
         </Text>
       </Text>
       <Text style={Styles.registration}>
-        Redefinir?
+        Esqueceu a senha?
         <TouchableOpacity onPress={() => navigation.navigate("Redefinir")}>
           <Text style={Styles.linkSubscribe} >
             Redefinir senha

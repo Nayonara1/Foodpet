@@ -19,8 +19,8 @@ export default function RedefinirSenha({ navigation }) {
     }
     return(
     <View>
-    <TextInput style={Styles.input} placeholder="Digite seu email" type="text" onChangeText={setEmail} value={email} />
-    <TouchableOpacity style={Styles.btn} onPress={Redefinir}>
+    <TextInput style={styles.input} placeholder="Digite seu email" type="text" onChangeText={setEmail} value={email} />
+    <TouchableOpacity style={styles.btn} onPress={Redefinir}>
         <Text style={Styles.textbtn}>Enviar</Text>
       </TouchableOpacity>
     </View>
