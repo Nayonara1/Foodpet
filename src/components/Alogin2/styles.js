@@ -53,7 +53,50 @@ export default StyleSheet.create({
         fontSize: 16,
         marginLeft: 10,
         fontSize: 16,
-    }
+    },
+    icon: {
+        marginLeft: 15,
+        padding: 10,
+      },
+
+      inputprincipal: {
+        flexDirection: 'row',
+        width: 320,
+        backgroundColor: '#fff',
+        borderRadius: 14,
+        marginBottom: 10,
+        alignItems: 'center',
+        marginLeft: "auto",
+        marginRight: "auto",
+       },
+       inputArea:{
+         width: 250,
+         padding: 10,
+         fontSize: 16,
+         fontWeight: 'bold',
+         backgroundColor: '#fff',
+         borderRadius: 12
+       }
+    //   inputprincipal: {
+    //     flexDirection: 'row',
+    //     marginBottom: 10,
+    //     width: 320,
+    //     backgroundColor: '#fff',
+    //     borderRadius: 14,
+    //     marginLeft: "auto",
+    //     marginRight: "auto",
+    //     color: "#4d5156",
+    //     alignItems: 'center',
+
+    //   },
+    //   inputArea: {
+    //     padding:10,
+        
+    //     fontSize: 16,
+    //     fontWeight: 'bold',
+    //     backgroundColor: '#fff',
+    //     borderRadius: 12
+    //   }
   
   
   

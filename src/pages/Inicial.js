@@ -11,6 +11,7 @@ export default ({ navigation }) => {
 
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
+  const [hidePass, setHidePass] = useState(true)
 
   const login = () => {
     firebase.auth().signInWithEmailAndPassword(email, senha)
@@ -40,12 +41,14 @@ export default ({ navigation }) => {
       <Text style={Styles.text}>Bem-vindo ao FoodPet!</Text>
 
       <TextInput style={Styles.input} placeholder="  Digite seu usuário" type="text" onChangeText={setEmail} value={email} />
-      <TextInput style={Styles.input} secureTextEntry={true} placeholder="  Digite sua senha" type="text" onChangeText={setSenha} value={senha} />
-      <TouchableOpacity style={styles.icon} onPress={ () => setHidePass(!hidePass)}>
-      <Ionicons name="eye" color='#FFF' size={25} />
 
-
+      <View style={Styles.inputprincipal}>
+      <TextInput style={Styles.inputArea}  placeholder="  Digite sua senha" type="text" onChangeText={setSenha} secureTextEntry={hidePass} value={senha} />
+      <TouchableOpacity style={Styles.icon} onPress={ () => setHidePass(!hidePass)}>
+      <Ionicons name="eye" color='#696969' size={25} />
       </TouchableOpacity>
+      </View>
+
       <TouchableOpacity style={Styles.btn} onPress={login}>
         <Text style={Styles.textbtn} > Entrar </Text>
       </TouchableOpacity>
