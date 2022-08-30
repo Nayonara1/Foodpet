@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import Inicial from './src/pages/Inicial'
 import Principal from './src/pages/Principal'
 import Cadastro from './src/pages/Cadastro'
+import Redefinir from './src/pages/Redefinir'
 
 const Stack = createNativeStackNavigator()
 
@@ -11,9 +12,22 @@ export default () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='Inicial'>
-                <Stack.Screen name="Inicial" component={Inicial} />
-                <Stack.Screen name="Principal" component={Principal} options={{ headerBackVisible: false }}/>
-                <Stack.Screen name="Cadastro" component={Cadastro}  />
+                <Stack.Screen name="Inicial" component={Inicial} options={{title:'Login',  headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 25}} }/>
+                <Stack.Screen name="Principal" component={Principal} options={{ headerBackVisible: false, title:'Principal',  headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 25} }}/>
+                <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerBackVisible: false, title:'Cadastro',  headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 25} }} />
+             <Stack.Screen name="Redefinir" component={Redefinir} options={{headerLeft: null, title:"Redefinir Senha", headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 25}}} />
             </Stack.Navigator>
         </NavigationContainer>
     )
