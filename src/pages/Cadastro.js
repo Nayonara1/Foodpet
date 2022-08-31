@@ -28,8 +28,8 @@ export default ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Preciso de alguns dados para começar.</Text>
-            <TextInput style={styles.input} placeholder="Seu nome1" type="text" onChangeText={setNome} value={nome} />
-            <TextInput style={styles.input} placeholder="Email" type="text" onChangeText={setEmail} value={email} />
+            <TextInput style={styles.input} placeholder="Seu nome" type="text" onChangeText={setNome} value={nome} />
+            <TextInput style={styles.input} placeholder="E-mail" type="text" onChangeText={setEmail} value={email} />
             <TextInput style={styles.input} placeholder="Nome do seu pet" type="text" onChangeText={SetNomepet} value={nomePet} />
 
             <View style={styles.inputprincipal}>
