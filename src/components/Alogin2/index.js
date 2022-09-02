@@ -10,8 +10,8 @@ export default props => (
 
  <Text style={Styles.text}>Login obrigatório para acessar o sistema!</Text>
 
- <TextInput style={Styles.input} placeholder="  Digite seu usuário"  />
- <TextInput style={Styles.input} secureTextEntry={true} placeholder="  Digite sua senha"  />
+ <TextInput style={Styles.input} placeholder="  Digite seu usuário"  testID='nome'/>
+ <TextInput style={Styles.input} secureTextEntry={true} placeholder="  Digite sua senha" testID='senha'  />
 
  <TouchableOpacity style={Styles.btn} >
      <Text style={Styles.textbtn} > Login </Text>
