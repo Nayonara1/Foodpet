@@ -65,7 +65,7 @@ export default ({ navigation }) => {
             <TouchableOpacity onPress={ligar} style={styles.btnLigar}>
                 <Text>LIGAR</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
+           <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
                 <Text>DESLIGAR</Text>
             </TouchableOpacity>
 

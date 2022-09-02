@@ -24,7 +24,7 @@ export default () => {
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 25} }} />
-             <Stack.Screen name="Redefinir" component={Redefinir} options={{headerLeft: null, title:"Redefinir Senha", headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
+             <Stack.Screen name="Redefinir" component={Redefinir} options={{headerLeft: null, title:"Redefinir Senha:", headerStyle:{backgroundColor: '#FA6252',  height: 110}, headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
             fontSize: 25}}} />
