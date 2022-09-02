@@ -40,29 +40,29 @@ export default ({ navigation }) => {
       </View>
       <Text style={Styles.text}>Bem-vindo ao FoodPet!</Text>
 
-      <TextInput style={Styles.input} placeholder="  Digite seu usuário" type="text" onChangeText={setEmail} value={email} />
+      <TextInput style={Styles.input} placeholder="  Digite seu usuário" type="text" onChangeText={setEmail} value={email} testID="campoemail" />
 
       <View style={Styles.inputprincipal}>
-      <TextInput style={Styles.inputArea}  placeholder="  Digite sua senha" type="text" onChangeText={setSenha} secureTextEntry={hidePass} value={senha} />
+      <TextInput style={Styles.inputArea}  placeholder="  Digite sua senha" type="text" onChangeText={setSenha} secureTextEntry={hidePass} value={senha}  testID="camposenha"/>
       <TouchableOpacity style={Styles.icon} onPress={ () => setHidePass(!hidePass)}>
       <Ionicons name="eye" color='#696969' size={25} />
       </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={Styles.btn} onPress={login}>
+      <TouchableOpacity style={Styles.btn} onPress={login} testID="Inicial">
         <Text style={Styles.textbtn} > Entrar </Text>
       </TouchableOpacity>
 
       <Text style={Styles.registration}>
         Não está cadastrado ?
-        <Text style={Styles.linkSubscribe} onPress={() => navigation.navigate("Cadastro")}>
+        <Text style={Styles.linkSubscribe} onPress={() => navigation.navigate("Cadastro")} testID="linkcadastrar">
           Cadastre-se agora
         </Text>
       </Text>
       <Text style={Styles.registration}>
         Esqueceu a senha?
         <TouchableOpacity onPress={() => navigation.navigate("Redefinir")}>
-          <Text style={Styles.linkSubscribe} >
+          <Text style={Styles.linkSubscribe}testID="linkredefinir" >
             Redefinir senha
           </Text>
         </TouchableOpacity>

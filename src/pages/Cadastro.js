@@ -28,18 +28,18 @@ export default ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Preciso de alguns dados para começar.</Text>
-            <TextInput style={styles.input} placeholder="Seu nome" type="text" onChangeText={setNome} value={nome} />
-            <TextInput style={styles.input} placeholder="E-mail" type="text" onChangeText={setEmail} value={email} />
-            <TextInput style={styles.input} placeholder="Nome do seu pet" type="text" onChangeText={SetNomepet} value={nomePet} />
+            <TextInput style={styles.input} placeholder="Seu nome" type="text" onChangeText={setNome} value={nome} testID="camponome"/>
+            <TextInput style={styles.input} placeholder="E-mail" type="text" onChangeText={setEmail} value={email}testID="campoemail2" />
+            <TextInput style={styles.input} placeholder="Nome do seu pet" type="text" onChangeText={SetNomepet} value={nomePet}testID="campopet" />
 
             <View style={styles.inputprincipal}>
-                <TextInput style={styles.inputArea} placeholder="senha" type="text" onChangeText={setSenha} secureTextEntry={hidePass} value={senha} />
+                <TextInput style={styles.inputArea} placeholder="senha" type="text" onChangeText={setSenha} secureTextEntry={hidePass} value={senha} testID="camposenha2"/>
                 <TouchableOpacity style={styles.icon} onPress={() => setHidePass(!hidePass)}>
                     <Ionicons name="eye" color='#696969' size={25} />
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.buttonRegister} onPress={cadastro}>
+            <TouchableOpacity style={styles.buttonRegister} onPress={cadastro} testID="cadastro">
                 <Text style={styles.textButtonRegister}>Cadastrar</Text>
             </TouchableOpacity>
         </View>

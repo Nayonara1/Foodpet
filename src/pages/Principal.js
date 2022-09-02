@@ -62,10 +62,10 @@ export default ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.paragraph}>Alimente seu pet sem stress!</Text>
-            <TouchableOpacity onPress={ligar} style={styles.btnLigar}>
+            <TouchableOpacity onPress={ligar} style={styles.btnLigar} testID="ligar">
                 <Text>LIGAR</Text>
             </TouchableOpacity>
-           <TouchableOpacity onPress={desligar} style={styles.bntDesligar}>
+           <TouchableOpacity onPress={desligar} style={styles.bntDesligar}testID="desligar">
                 <Text>DESLIGAR</Text>
             </TouchableOpacity>
 
